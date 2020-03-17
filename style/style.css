@@ -1,0 +1,12 @@
+#buttonRow {
+    text-align: center;
+    justify-content: center;
+}
+
+#buttonJumbotron {
+    background-color: cadetblue !important;
+}
+
+#transcriptJumbotron {
+    background-color: cadetblue;
+}
