@@ -48,7 +48,7 @@ $(document).ready(function () {
             // For each note...
             for (var i = 0; i < data.length; i++) {
                 // ...populate #results with a p-tag that includes the note's title and object id
-                $("#results").prepend("<p class='data-entry' data-id=" + data[i]._id + "><span class='dataTitle' data-id=" +
+                $("#submitField").prepend("<p class='data-entry' data-id=" + data[i]._id + "><span class='dataTitle' data-id=" +
                     data[i]._id + ">" + data[i].title + "</span><span class=delete>X</span></p>");
             }
         });
@@ -65,7 +65,7 @@ $(document).ready(function () {
             dataType: "json",
             url: "/submit",
             data: {
-                sentence: $("#transcriptField").val(),
+                sentence: finalTranscript,
                 created: Date.now()
             }
         })
@@ -73,7 +73,7 @@ $(document).ready(function () {
             .then(function (data) {
                 // Add the title and delete button to the #submitField section
                 $("#submitField").prepend("<p class='data-entry' data-id=" + data._id + "><span class='dataTitle' data-id=" +
-                    data._id + ">" + data.title + "</span><span class=delete>X</span></p>");
+                    data._id + ">" + data.sentence + "</span></p>");
                 ///////////////////////////////////////////////////
                 // Clear the note and title inputs on the page  //
                 $("#transcriptField").val("");                  //

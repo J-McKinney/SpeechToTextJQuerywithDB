@@ -28,7 +28,7 @@ var db = mongojs(databaseUrl, collections);
 
 // Log any mongojs errors to console
 db.on("error", function (error) {
-    // console.log("Database Error:", error);
+    console.log("Database Error:", error);
 });
 
 // Routes
@@ -41,13 +41,12 @@ app.get("/", function (req, res) {
 
 // Handle form submission, save submission to mongo
 app.post("/submit", function (req, res) {
-    // console.log(req.body);
-    console.log(req.body)
+    console.log(req.body);
     // Insert the sentence into the sentences collection
     db.sentences.insert(req.body, function (error, saved) {
         // Log any errors
         if (error) {
-            // console.log(error);
+            console.log(error);
         }
         else {
             // Otherwise, send the note back to the browser
@@ -63,7 +62,7 @@ app.get("/all", function (req, res) {
     db.sentences.find({}, function (error, found) {
         // Log any errors
         if (error) {
-            // console.log(error);
+            console.log(error);
         }
         else {
             // Otherwise, send json of the notes back to user
@@ -87,13 +86,13 @@ app.get("/find/:id", function (req, res) {
         function (error, found) {
             // log any errors
             if (error) {
-                // console.log(error);
+                console.log(error);
                 res.send(error);
             }
             else {
                 // Otherwise, send the sentence to the browser
                 // This will fire off the success function of the ajax request
-                // console.log(found);
+                console.log(found);
                 res.send(found);
             }
         }
@@ -121,7 +120,7 @@ app.post("/update/:id", function (req, res) {
         function (error, edited) {
             // Log any errors from mongojs
             if (error) {
-                // console.log(error);
+                console.log(error);
                 res.send(error);
             }
             else {
@@ -145,13 +144,13 @@ app.get("/delete/:id", function (req, res) {
         function (error, removed) {
             // Log any errors from mongojs
             if (error) {
-                // console.log(error);
+                console.log(error);
                 res.send(error);
             }
             else {
                 // Otherwise, send the mongojs response to the browser
                 // This will fire off the success function of the ajax request
-                // console.log(removed);
+                console.log(removed);
                 res.send(removed);
             }
         }
@@ -164,13 +163,13 @@ app.get("/clearall", function (req, res) {
     db.sentences.remove({}, function (error, response) {
         // Log any errors to the console
         if (error) {
-            // console.log(error);
+            console.log(error);
             res.send(error);
         }
         else {
             // Otherwise, send the mongojs response to the browser
             // This will fire off the success function of the ajax request
-            // console.log(response);
+            console.log(response);
             res.send(response);
         }
     });
