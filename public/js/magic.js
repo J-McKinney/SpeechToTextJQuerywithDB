@@ -59,7 +59,7 @@ $(document).ready(function () {
 
     $(document).on("click", "#submitButton", function () {
         // AJAX POST call to the submit route on the server
-        // This will take the data from the form and send it to the server
+        // This will take the data from the div and send it to the server
         $.ajax({
             type: "POST",
             dataType: "json",

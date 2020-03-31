@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Database configuration
-var databaseUrl = "speech2text";
+var databaseUrl = "speech2text_2";
 var collections = ["sentences"];
 
 // Hook mongojs config to db variable
@@ -176,6 +176,6 @@ app.get("/clearall", function (req, res) {
 });
 
 // Listen on port 3000
-app.listen(3000, function () {
-    console.log("App running on port 3000!");
+app.listen(3002, function () {
+    console.log("App running on port 3002!");
 });
