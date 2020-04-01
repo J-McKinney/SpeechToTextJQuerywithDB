@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Database configuration
-var databaseUrl = "speech2text_2";
+var databaseUrl = "speech2text_JQ";
 var collections = ["sentences"];
 
 // Hook mongojs config to db variable
