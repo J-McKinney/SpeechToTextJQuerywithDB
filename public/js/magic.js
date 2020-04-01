@@ -24,17 +24,31 @@ $(document).ready(function() {
   };
 
   $("#startButton").on("click", function() {
+    $("#transcriptField").empty();
+    interimTranscript = "";
+    finalTranscript = "";
     recognition.start();
+    document.getElementById("stopButton").disabled = false;
+    document.getElementById("startButton").disabled = true;
+    document.getElementById("submitButton").disabled = true;
+    document.getElementById("resetButton").disabled = true;
   });
+
   $("#stopButton").on("click", function() {
     recognition.stop();
-    // finalTranscript = "";
-    interimTranscript = "";
+    document.getElementById("stopButton").disabled = true;
+    document.getElementById("submitButton").disabled = false;
+    document.getElementById("resetButton").disabled = false;
   });
+
   $("#resetButton").on("click", function() {
     $("#transcriptField").empty();
     finalTranscript = "";
     interimTranscript = "";
+    document.getElementById("startButton").disabled = false;
+    document.getElementById("stopButton").disabled = true;
+    document.getElementById("submitButton").disabled = true;
+    document.getElementById("resetButton").disabled = true;
   });
 
   // Loads results onto the page
@@ -63,6 +77,9 @@ $(document).ready(function() {
   getResults();
 
   $(document).on("click", "#submitButton", function() {
+    $("#transcriptField").empty();
+    // finalTranscript = "";
+    interimTranscript = "";
     // AJAX POST call to the submit route on the server
     // This will take the data from the div and send it to the server
     $.ajax({
@@ -87,10 +104,14 @@ $(document).ready(function() {
             "</span></p>"
         );
         ///////////////////////////////////////////////////
-        // Clear the note and title inputs on the page  //
-        $("#transcriptField").val(""); //
-        //////////////////////////////////////////////////
+        // Clear the note and title inputs on the page   //
+        $("#transcriptField").val(""); ////////////////////
+        ///////////////////////////////////////////////////
       });
+    document.getElementById("startButton").disabled = false;
+    document.getElementById("stopButton").disabled = true;
+    document.getElementById("submitButton").disabled = true;
+    document.getElementById("resetButton").disabled = true;
   });
 
   // When the #clear-all button is pressed

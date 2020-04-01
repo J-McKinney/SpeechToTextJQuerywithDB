@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <header>
-    <title>Prototype_2</title>
+    <title>SpeechToTextJQuerywithDB</title>
     <link rel='stylesheet' href='../style/reset.css'>
     <!-- BootStrap -->
     <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'
@@ -30,20 +30,18 @@
                     <button type="button" class="btn btn-success" id="startButton">Start Recording</button>
                 </div>
                 <div class='col-md-3'>
-                    <button type="button" class="btn btn-warning" id="stopButton">Stop Recording</button>
+                    <button type="button" class="btn btn-warning" id="stopButton" disabled>Stop Recording</button>
                 </div>
                 <div class='col-md-3'>
-                    <button type="button" class="btn btn-danger" id="resetButton">Reset Transcript</button>
+                    <button type="button" class="btn btn-primary" id="submitButton" disabled>Submit Transcript</button>
                 </div>
                 <div class='col-md-3'>
-                    <button type="button" class="btn btn-primary" id="submitButton">Submit Transcript</button>
+                    <button type="button" class="btn btn-danger" id="resetButton" disabled>Reset Transcript</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <br />
-    <hr />
     <br />
 
     <div class="jumbotron" id="transcriptJumbotron">
